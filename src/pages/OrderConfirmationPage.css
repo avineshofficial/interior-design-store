@@ -1,0 +1,107 @@
+.confirmation-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  min-height: 80vh;
+  background-color: var(--secondary-color);
+}
+
+.confirmation-card {
+  max-width: 650px;
+  width: 100%;
+  background-color: var(--white-color);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--success-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  margin: 0 auto 20px;
+  line-height: 1;
+}
+
+.confirmation-card h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.confirmation-message {
+  font-size: 1.1rem;
+  color: var(--text-color-light);
+  margin-bottom: 30px;
+}
+
+/* Order Summary Box */
+.order-summary-box {
+  border-top: 1px solid var(--border-color);
+  margin-top: 30px;
+  padding-top: 30px;
+  text-align: left;
+}
+
+.order-summary-box h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.order-id {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.order-id strong {
+  color: var(--text-color-light);
+}
+
+.order-details-section {
+  margin-bottom: 25px;
+}
+.order-details-section h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Items List */
+.ordered-items-list {
+  list-style-type: none;
+}
+.ordered-items-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  font-size: 1.2rem;
+}
+
+
+/* Home Button */
+.home-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  /* Uses styles from index.css button */
+}

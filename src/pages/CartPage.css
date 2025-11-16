@@ -1,0 +1,109 @@
+.cart-page {
+  padding: 40px 0;
+  min-height: 80vh;
+}
+
+.cart-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Cart Items List */
+.cart-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 0.5fr;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--text-color);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color-light);
+  gap: 1rem;
+}
+
+/* Cart Summary Box */
+.cart-summary {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  position: sticky; /* Make summary box stick on scroll on desktop */
+  top: calc(var(--header-height) + 20px);
+}
+
+.cart-summary h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.summary-row, .summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.summary-total {
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 1rem;
+}
+
+.checkout-btn, .clear-cart-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.clear-cart-btn {
+    background-color: transparent;
+    color: var(--text-color-light);
+    border: 1px solid var(--border-color);
+}
+.clear-cart-btn:hover {
+    background-color: var(--error-color);
+    color: var(--white-color);
+    border-color: var(--error-color);
+    transform: none;
+}
+
+/* Empty Cart Styles */
+.empty-cart {
+  text-align: center;
+}
+.empty-cart p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-color-light);
+}
+.continue-shopping-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.continue-shopping-btn:hover {
+  opacity: 0.9;
+}
+
+
+/* --- ADD/UPDATE THIS MEDIA QUERY --- */
+@media (max-width: 992px) {
+  .cart-content {
+    grid-template-columns: 1fr; /* Stack on smaller screens */
+  }
+  .cart-summary {
+    position: static; /* Un-stick the summary box on mobile */
+    top: auto;
+  }
+  .cart-header {
+    display: none; /* Hide header on mobile where layout changes */
+  }
+}

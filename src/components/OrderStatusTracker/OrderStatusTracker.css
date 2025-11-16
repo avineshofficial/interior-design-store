@@ -1,0 +1,95 @@
+.order-tracker-container {
+  background: var(--white-color);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+}
+.order-tracker-container h3 {
+  margin-top: 0;
+  margin-bottom: 2.5rem; /* More space for labels */
+}
+
+.order-tracker {
+  display: flex;
+  position: relative;
+  /* Add padding to prevent the first and last dots from touching the edges */
+  padding: 0 10px; 
+}
+
+/* This is the base gray line that runs behind all the dots */
+.order-tracker::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  background-color: #e0e0e0;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.tracker-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1; /* Make all steps share space equally */
+}
+
+.step-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--white-color);
+  border: 4px solid #e0e0e0; /* Default grey border */
+  z-index: 2; /* Sits above the line */
+  transition: all 0.4s ease;
+}
+
+/* --- THE KEY FIX: Using a separate element for the colored progress line --- */
+.step-line-active {
+    position: absolute;
+    height: 4px;
+    background-color: var(--primary-color);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    left: 0;
+    transition: width 0.4s ease; /* Animate the width change */
+}
+
+
+/* When a step is completed, color the dot */
+.tracker-step.completed .step-dot {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+/* For the CURRENT active step, give it an outer ring */
+.tracker-step.current .step-dot {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--secondary-color);
+}
+
+.step-label {
+  margin-top: 1rem;
+  text-align: center;
+}
+.status-name {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.status-date {
+  font-size: 0.8rem;
+  color: var(--text-color-light);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .step-label {
+    width: auto;
+  }
+  .status-name { font-size: 0.7rem; }
+  .status-date { font-size: 0.65rem; }
+}

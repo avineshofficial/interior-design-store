@@ -1,0 +1,155 @@
+.admin-products-page {
+  padding: 40px 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.add-new-btn {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  transition: background-color 0.2s ease;
+}
+
+.add-new-btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.products-table-container {
+  overflow-x: auto;
+  background: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-table th,
+.products-table td {
+  padding: 12px 15px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.products-table thead tr {
+  background-color: var(--secondary-color);
+}
+.products-table th {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.products-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+.products-table tbody tr:last-child {
+  border-bottom: none;
+}
+.products-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.no-items-cell {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-color-light);
+}
+
+.product-thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+/* ==================================================== */
+/* --- FINAL, HIGH-SPECIFICITY BUTTON STYLE FIX --- */
+/* ==================================================== */
+
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Base style for BOTH the link (a) and the button */
+.actions-cell .action-btn {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  display: inline-block; /* Ensure it's a block-level element for styling */
+}
+
+/* Specific style for the Edit link */
+.actions-cell .action-btn.edit-btn {
+  background-color: #337ab7;
+  color: white;
+}
+#delbtn{
+  background-color: #d9534f;
+}
+/* Specific, more powerful style for the Delete button */
+.actions-cell button.action-btn.delete-btn {
+  background-color: #d9534f;
+  color: white;
+  visibility: visible; /* Explicitly make sure it is visible */
+  opacity: 8;         /* Explicitly make sure it is not transparent */
+}
+/* ==================================================== */
+/*                   END OF FINAL FIX                 */
+/* ==================================================== */
+
+/* --- RESPONSIVE STYLES --- */
+@media screen and (max-width: 768px) {
+  .products-table thead { 
+    display: none; 
+  }
+  .products-table tr { 
+    display: block; 
+    margin-bottom: 1rem; 
+    border: 1px solid var(--border-color); 
+    padding: 1rem; 
+    border-radius: var(--border-radius); 
+  }
+  .products-table td { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right; 
+    border-bottom: 1px dotted var(--border-color); 
+    padding: 0.75rem 0; 
+  }
+  .products-table td:last-child { 
+    border-bottom: 0; 
+  }
+  .products-table td:before { 
+    content: attr(data-label); 
+    font-weight: bold; 
+    text-align: left;
+    margin-right: 1rem;
+    padding-right: 1rem;
+  }
+  .actions-cell {
+    justify-content: flex-end;
+  }
+}

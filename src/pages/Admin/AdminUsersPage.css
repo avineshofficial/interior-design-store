@@ -1,0 +1,70 @@
+.admin-users-page {
+  padding: 40px 0;
+}
+
+.users-table-container {
+    overflow-x: auto;
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px 15px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.users-table thead tr {
+  background-color: var(--secondary-color);
+}
+.users-table th {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.users-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.users-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.no-items-cell {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-color-light);
+}
+
+/* Role Badge Styles */
+.role-badge {
+  padding: 4px 10px;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.role-admin {
+  color: var(--primary-color-dark);
+  background-color: rgba(142, 68, 173, 0.1);
+}
+.role-customer {
+  color: #7f8c8d;
+  background-color: rgba(127, 140, 141, 0.1);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .users-table thead { display: none; }
+  .users-table tr { display: block; margin-bottom: 1rem; border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--border-radius); }
+  .users-table td { display: flex; justify-content: space-between; align-items: center; text-align: right; border-bottom: 1px dotted var(--border-color); padding: 0.75rem 0; word-break: break-all; }
+  .users-table td:last-child { border-bottom: 0; }
+  .users-table td:before { content: attr(data-label); font-weight: bold; text-align: left; margin-right: 1rem; }
+}

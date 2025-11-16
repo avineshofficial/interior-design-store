@@ -1,0 +1,31 @@
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  
+  /* --- NEW STYLING --- */
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  /* No underline, just a subtle background and border change */
+  text-decoration: none;
+  background-color: #e9ecef; /* A slightly darker grey */
+  border-color: #dee2e6;
+  transform: translateY(-1px); /* Add a subtle lift */
+}
+
+.back-button svg {
+  font-size: 1.1rem;
+}

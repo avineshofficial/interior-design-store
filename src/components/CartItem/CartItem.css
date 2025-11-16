@@ -1,0 +1,131 @@
+/* --- BASE DESKTOP STYLES --- */
+.cart-item {
+  display: grid;
+  /* Define columns and their names for clarity */
+  grid-template-columns: 2fr 1fr 1fr 0.5fr; 
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
+}
+
+.cart-item-product {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.cart-item-product img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+.item-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+.item-title:hover {
+  color: var(--primary-color);
+}
+.item-price {
+  color: var(--text-color-light);
+  font-size: 0.9rem;
+}
+
+.cart-item-quantity {
+  justify-self: center; /* Center horizontally in its grid cell */
+}
+.cart-item-total {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: right;
+}
+.cart-item-remove {
+  justify-self: flex-end; /* Align to the far right */
+}
+
+/* Fix for Remove Button Icon Visibility and Styling */
+.remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  color: var(--text-color); /* This ensures the 'X' is visible */
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+.remove-btn:hover {
+  background-color: #fce7e7;
+  color: var(--error-color);
+}
+
+
+/* ========================================= */
+/* --- FINAL RESPONSIVE FIX (MOBILE VIEW) --- */
+/* ========================================= */
+@media (max-width: 768px) {
+  .cart-item {
+    /* Step 1: Define named grid areas for a clean layout */
+    grid-template-areas:
+      "product total"
+      "product quantity"
+      "product remove"; /* The remove button gets its own space */
+    
+    /* Step 2: Define the column sizes */
+    grid-template-columns: 1fr auto; /* Content on left, actions on right */
+    
+    row-gap: 0.5rem;
+    column-gap: 1rem;
+  }
+  
+  /* Step 3: Assign each element to its named area */
+  .cart-item-product   { grid-area: product; }
+  .cart-item-quantity  { grid-area: quantity; }
+  .cart-item-total     { grid-area: total; }
+  .cart-item-remove    { grid-area: remove; }
+  
+  /* Step 4: Adjust alignment for the new layout */
+  .cart-item-product {
+    align-items: flex-start; /* Align image to the top */
+  }
+  .cart-item-product img {
+      width: 70px;
+      height: 70px;
+  }
+  
+  .cart-item-quantity {
+    justify-self: start; /* Align to the left of its area */
+    align-self: flex-end; /* Align to the bottom of its area */
+  }
+  
+  .cart-item-total {
+    align-self: flex-start; /* Align to the top of its area */
+    font-size: 1.2rem;
+    padding-top: 0.5rem; /* Give it a little space from the top */
+  }
+
+  .cart-item-remove {
+    align-self: flex-end; /* Align to the bottom of its area */
+    justify-self: end;
+  }
+  
+  .remove-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+}

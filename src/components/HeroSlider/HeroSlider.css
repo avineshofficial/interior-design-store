@@ -1,0 +1,80 @@
+.hero-slider-container {
+  width: 100%;
+  max-width: var(--max-width); /* Ensures it doesn't get too wide on large monitors */
+  margin: 30px auto; /* Centered with vertical spacing */
+  padding: 0 20px;
+}
+
+/* A placeholder to prevent layout shift while the images load */
+.loading-placeholder {
+  /* --- FIX: Using a wider aspect ratio to make it shorter --- */
+  aspect-ratio: 21 / 9;
+  background-color: #f0f0f0;
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  cursor: pointer;
+  /* --- FIX: Using a wider aspect ratio to make it shorter --- */
+  aspect-ratio: 27   / 9; 
+}
+
+
+/* --- SLICK CAROUSEL OVERRIDE STYLES --- */
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+.slick-prev {
+  left: 25px !important;
+}
+.slick-next {
+  right: 25px !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: var(--text-color) !important;
+  font-size: 20px !important;
+  opacity: 1 !important;
+}
+
+/* Dots */
+.slick-dots {
+  bottom: 15px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 10px !important;
+  color: white !important;
+  opacity: 0.6 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1 !important;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .hero-slider-container {
+    padding: 0;
+  }
+
+  .loading-placeholder,
+  .slider-image {
+    /* --- FIX: A shorter aspect ratio for mobile too --- */
+    aspect-ratio: 16 / 9; /* Was 5/4, now it's standard widescreen */
+    border-radius: 0; /* Full-width on mobile */
+  }
+}

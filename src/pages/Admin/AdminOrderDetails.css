@@ -1,0 +1,106 @@
+.admin-order-details-page {
+    padding: 20px; /* Use padding on parent */
+}
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.back-link:hover { text-decoration: underline; }
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+.card {
+    background: var(--white-color);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-top: 0; margin-bottom: 1rem;
+    padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);
+}
+.customer-details-card p,
+.order-summary-card p {
+    line-height: 1.7; margin: 0.5rem 0;
+}
+.customer-details-card address { margin-top: 1rem; font-style: normal; line-height: 1.6; }
+.order-notes { margin-top: 1rem; font-style: italic; color: var(--text-color-light); }
+
+.status-update-section {
+    margin-top: 1.5rem; border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+.status-update-section label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+.status-update-section select,
+.status-update-section button { width: 100%; padding: 10px; }
+.status-update-section button { margin-top: 1rem; }
+
+.order-items-card {
+    overflow-x: auto; /* Allow horizontal scroll on very wide tables if needed */
+}
+.order-items-card .items-table {
+    width: 100%; border-collapse: collapse;
+}
+.items-table th, .items-table td {
+    padding: 12px; text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+.items-table thead { background-color: var(--secondary-color); }
+.items-table tbody tr:last-child td { border-bottom: none; }
+
+
+/* ======================================================== */
+/* --- THE FIX: ADD THIS RESPONSIVE TABLE MEDIA QUERY --- */
+/* ======================================================== */
+@media screen and (max-width: 768px) {
+    .items-table {
+      border: 0;
+    }
+    .items-table thead {
+      display: none; /* Hide desktop headers */
+    }
+    .items-table tr {
+      display: block;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 1rem;
+    }
+    .items-table td {
+      display: flex; /* Use flexbox for alignment */
+      justify-content: space-between;
+      align-items: center;
+      text-align: right;
+      padding: 8px 0;
+      border-bottom: 1px dotted var(--border-color);
+    }
+    .items-table td:last-child {
+      border-bottom: 0;
+    }
+    .items-table td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      text-align: left;
+      margin-right: 1rem; /* Space between label and value */
+    }
+}
+

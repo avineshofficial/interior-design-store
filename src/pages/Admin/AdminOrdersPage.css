@@ -1,0 +1,105 @@
+.admin-orders-page {
+  padding: 40px 0;
+}
+.admin-orders-page > p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color-light);
+}
+
+.orders-list-container {
+    overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Ensures content doesn't get too squished */
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.orders-table thead tr {
+  background-color: var(--secondary-color);
+  border-bottom: 2px solid var(--border-color);
+}
+.orders-table th {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-color-light);
+}
+
+.orders-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+.orders-table tbody tr:last-child {
+  border-bottom: none;
+}
+.orders-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+
+/* Status Badge Styles */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.status-pending .status-badge { background-color: #f0ad4e; }
+.status-processing .status-badge { background-color: #337ab7; }
+.status-shipped .status-badge { background-color: #5bc0de; }
+.status-delivered .status-badge { background-color: var(--success-color); }
+.status-cancelled .status-badge { background-color: #d9534f; }
+
+/* Responsive table for mobile */
+@media screen and (max-width: 768px) {
+  .orders-table {
+    border: 0;
+  }
+  .orders-table thead {
+    display: none; /* Hide headers */
+  }
+  .orders-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+  }
+  .orders-table td {
+    display: block;
+    text-align: right;
+    border-bottom: 1px dotted var(--border-color);
+    padding-left: 50%;
+    position: relative;
+  }
+  .orders-table td:last-child {
+    border-bottom: 0;
+  }
+  .orders-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+/* ADD THIS TO THE BOTTOM OF THE FILE */
+.clickable-row {
+    cursor: pointer;
+}

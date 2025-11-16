@@ -1,0 +1,40 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color); /* Use a darker text for better contrast */
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.logo-container:hover {
+  color: var(--primary-color-dark); /* Darken text on hover */
+}
+
+.logo-icon {
+  /* This will color the SVG icon with your primary purple color */
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s ease-in-out, color 0.3s ease;
+}
+
+/* Add a subtle rotation and color change on hover for a premium feel */
+.logo-container:hover .logo-icon {
+  transform: rotate(45deg);
+  color: var(--primary-color-dark);
+}
+
+.logo-text {
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive: Hide text on mobile and just show the beautiful icon */
+@media (max-width: 900px) {
+  .logo-text {
+    display: none;
+  }
+}

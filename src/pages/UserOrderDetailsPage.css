@@ -1,0 +1,121 @@
+.user-order-details-page {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.order-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .order-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.order-info-card {
+  background: var(--white-color);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.order-info-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.order-info-card p, .order-info-card address {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+  font-style: normal;
+}
+
+.total-price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.order-items-card {
+  background: var(--white-color);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.order-items-card h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.ordered-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.ordered-item:last-child {
+  border-bottom: none;
+}
+
+.ordered-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.item-info {
+  flex-grow: 1;
+}
+
+.item-title-link {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+  text-decoration: none;
+  color: var(--text-color);
+}
+.item-title-link:hover {
+  color: var(--primary-color);
+}
+
+.item-total {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+/* --- ADD THESE STYLES TO THE END OF UserOrderDetailsPage.css --- */
+
+.cancel-order-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.cancel-order-btn {
+  /* Inherits global button styles, we just need to change the color */
+  width: 100%;
+  background-color: var(--error-color);
+}
+
+.cancel-order-btn:hover {
+  background-color: #c0392b; /* A darker red */
+}

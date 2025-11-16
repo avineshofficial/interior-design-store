@@ -1,0 +1,101 @@
+.not-found-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+  padding: 40px 20px;
+}
+
+.not-found-container {
+  max-width: 600px;
+}
+
+.not-found-svg {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+/* 404 Text Styling */
+.four-oh-four {
+  font-family: 'Poppins', sans-serif;
+  font-size: 180px;
+  font-weight: 800;
+  fill: var(--primary-color);
+  opacity: 0.15;
+}
+
+/* Individual Star Styling */
+.star {
+  fill: var(--primary-color);
+  animation-duration: 2s;
+  animation-name: float;
+  animation-iteration-count: infinite;
+}
+
+/* Create slight delays for each star to make them float at different times */
+.star:nth-of-type(2) { animation-delay: -1.7s; }
+.star:nth-of-type(3) { animation-delay: -0.5s; }
+.star:nth-of-type(4) { animation-delay: -1.2s; }
+.star:nth-of-type(5) { animation-delay: -1s; }
+.star:nth-of-type(6) { animation-delay: -2s; }
+.star:nth-of-type(7) { animation-delay: -1.5s; }
+
+
+/* Animation for moving the whole group of stars */
+.stars-g {
+  animation: rotate 20s linear infinite;
+  transform-origin: center;
+}
+
+/* Keyframes for the star rotation */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Keyframes for the individual star floating */
+@keyframes float {
+  50% { transform: translateY(12px); opacity: 0.7; }
+}
+
+
+.not-found-title {
+  margin-top: -2rem; /* Pull title up over the SVG slightly */
+  font-size: 2.5rem;
+  color: var(--text-color);
+}
+
+.not-found-message {
+  color: var(--text-color-light);
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+}
+
+.not-found-home-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+.not-found-home-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .four-oh-four {
+        font-size: 120px;
+    }
+    .not-found-title {
+        font-size: 2rem;
+    }
+    .not-found-message {
+        font-size: 1rem;
+    }
+}

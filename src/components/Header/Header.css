@@ -1,0 +1,294 @@
+/* ================================== */
+/*          HEADER & CONTAINER        */
+/* ================================== */
+.app-header {
+  height: var(--header-height);
+  background-color: var(--white-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-container {
+  max-width: var(--max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* ================================== */
+/*        DESKTOP NAVIGATION          */
+/* ================================== */
+.main-nav-desktop {
+  display: none;
+}
+@media (min-width: 901px) {
+  .main-nav-desktop {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.main-nav-desktop a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  padding: 10px 0;
+  transition: color 0.2s ease;
+}
+.main-nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.main-nav-desktop a:hover,
+.main-nav-desktop a.active {
+  color: var(--primary-color);
+}
+.main-nav-desktop a:hover::after,
+.main-nav-desktop a.active::after {
+  transform: scaleX(1);
+}
+
+/* ================================== */
+/*        MOBILE SIDEBAR & OVERLAY    */
+/* ================================== */
+.main-nav-mobile {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  transition: left 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 1002;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+.main-nav-mobile.active {
+  left: 0;
+}
+.mobile-nav-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.mobile-nav-title {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin: 0;
+}
+.mobile-nav-close {
+  background: var(--secondary-color);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--text-color-light);
+  padding: 0;
+  cursor: pointer;
+}
+.mobile-nav-close:hover {
+  background-color: #e0e0e0;
+}
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+}
+.nav-toggle {
+  display: block;
+  background: transparent; /* Explicitly no background */
+  border: none; /* No border */
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1002; /* Ensure it's on top of overlay */
+  color: var(--text-color);
+  padding: 0.5rem; /* Give it a comfortable click area */
+  line-height: 1; /* Remove extra vertical space */
+}
+.mobile-menu-separator {
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+  margin: 1.5rem 0;
+}
+.mobile-user-menu, .mobile-auth-link {
+  /* 'margin-top: auto' has been removed */
+  width: 100%; 
+  display: flex; 
+  flex-direction: column;
+}
+/* Base links like Home/Products */
+.main-nav-mobile > a {
+  width: 100%; font-size: 1.3rem; font-weight: 500; color: var(--text-color);
+  text-decoration: none; padding: 0.8rem 1rem; border-radius: var(--border-radius);
+}
+
+/* User-specific links like My Profile, My Orders */
+.mobile-user-link {
+  display: flex; align-items: center; gap: 1rem;
+  width: 100%; text-decoration: none; padding: 0.8rem 1rem;
+  border-radius: var(--border-radius); font-size: 1.1rem !important; color: var(--text-color);
+  font-weight: 500; transition: background-color 0.2s, color 0.2s;
+}
+
+/* --- THE FIX: Unify hover and active styles for ALL links in the sidebar --- */
+.main-nav-mobile > a:hover,
+.mobile-user-link:hover {
+  background-color: var(--secondary-color);
+}
+
+.main-nav-mobile > a.active,
+.mobile-user-link.active {
+  background-color: #f8f1fb; /* light purple highlight */
+  color: var(--primary-color) !important;
+  font-weight: 600 !important;
+}
+/* --- END OF FIX --- */
+
+.mobile-logout-btn {
+  display: flex; align-items: center; gap: 1rem;
+  font-size: 1.1rem; padding: 0.8rem 1rem; color: var(--error-color);
+  text-align: left; background: none; border: none; font-weight: 500;
+  width: 100%; cursor: pointer; border-radius: var(--border-radius); margin-top: 0.5rem;
+}
+.mobile-logout-btn:hover { background-color: rgba(231, 76, 60, 0.1); transform: none; }
+
+
+/* ================================== */
+/*       AUTH & CART STYLES           */
+/* ================================== */
+.link-text { display: none; }
+.login-button { display: none; }
+.profile-dropdown { display: none; }
+.cart-link {
+  position: relative; display: flex; align-items: center;
+  gap: 8px; text-decoration: none; color: var(--text-color); font-weight: 500;
+}
+.icon-link svg { font-size: 1.6rem; }
+.cart-badge {
+  position: absolute; top: -5px; right: -10px; width: 20px; height: 20px;
+  border-radius: 50%; background-color: var(--error-color); color: white;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 0.7rem; font-weight: 700; border: 2px solid var(--white-color);
+}
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--error-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 2px solid var(--white-color);
+}
+
+/* DESKTOP Login/Profile Dropdown styles */
+.desktop-auth > .login-button {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 18px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease-in-out;
+}
+.desktop-auth > .login-button:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+.dropdown-toggle {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-size: 2.2rem; display: flex; align-items: center;
+  color: var(--text-color);
+}
+.dropdown-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--border-color);
+  transition: border-color 0.2s;
+}
+.dropdown-toggle:hover .dropdown-avatar {
+  border-color: var(--primary-color);
+}
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 30px; /* <-- FIX: Pushes the menu 10px from the right edge */
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  z-index: 1001;
+  width: 240px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.dropdown-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-header, .dropdown-item { padding: 1rem; }
+.dropdown-header { border-bottom: 1px solid var(--border-color); color: var(--text-color-light); }
+.dropdown-header strong { display: block; word-wrap: break-word; color: var(--text-color); }
+.dropdown-item {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--text-color);
+  background: none; cursor: pointer; font-size: 1rem; border: none;
+}
+.dropdown-item:hover { background-color: var(--secondary-color); color: var(--primary-color); }
+.dropdown-item.admin-link { background-color: #f8f1fb; }
+.dropdown-item.logout-btn { border-top: 1px solid var(--border-color); color: var(--error-color); }
+
+
+/* ================================== */
+/*        RESPONSIVE SWITCH             */
+/* ================================== */
+@media (min-width: 901px) {
+  .nav-toggle, .main-nav-mobile, .nav-overlay { display: none !important; }
+  .main-nav-desktop, .desktop-auth, .link-text { display: flex; align-items: center; }
+  .desktop-auth { display: block; }
+  .desktop-auth > .login-button, .desktop-auth > .profile-dropdown { display: block; }
+}

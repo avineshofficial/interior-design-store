@@ -1,0 +1,66 @@
+.home-page {
+  width: 100%;
+}
+
+/* Featured Section */
+.featured-categories {
+  padding: 40px 0; /* Reduced top padding as slider has its own margin */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.category-grid {
+  display: grid;
+  /* Adjusting minmax allows more cards to fit on one line */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.category-card {
+  height: 200px; /* <-- REDUCE THIS VALUE. Was 250px. */
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-size: 1.3rem; /* Slightly smaller font to match */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: var(--white-color);
+}
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.category-card:hover::before {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.category-card h3 {
+    position: relative;
+    z-index: 2;
+    padding: 0 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}

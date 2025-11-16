@@ -1,0 +1,113 @@
+.addresses-page-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.addresses-page-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to single column for mobile-first approach */
+  gap: 3rem;
+  align-items: start;
+}
+
+/* On larger screens, use two columns */
+@media (min-width: 992px) {
+  .addresses-page-layout {
+    grid-template-columns: 380px 1fr; /* Fixed width form, flexible list */
+  }
+}
+
+.section-title-small {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Form Styles */
+.address-form-container {
+  /* On desktop, the form sticks while scrolling the address list */
+  position: sticky;
+  top: calc(var(--header-height) + 20px);
+}
+
+.address-form {
+  padding: 1.5rem;
+  background: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.address-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.address-form .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.address-form .form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.error-text {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Saved Address Card Styles */
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column of addresses */
+  gap: 1.5rem;
+}
+
+.address-card {
+  border: 1px solid var(--border-color);
+  background-color: var(--white-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  position: relative;
+}
+
+.address-card address {
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  color: var(--error-color);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  box-shadow: none;
+  border: 1px solid transparent;
+}
+
+.delete-btn:hover {
+  background: var(--error-color);
+  color: var(--white-color);
+  border-color: var(--error-color);
+  transform: none;
+}
+
+/* --- THE FIX: ADD THIS MEDIA QUERY AT THE END OF THE FILE --- */
+@media (max-width: 768px) {
+  .address-form .form-row {
+    flex-direction: column; /* Stack the inputs vertically */
+    gap: 0; /* Remove the horizontal gap */
+  }
+
+  .address-form-container {
+    position: static; /* Unstick the form on mobile */
+  }
+}

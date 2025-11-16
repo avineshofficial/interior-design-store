@@ -1,0 +1,62 @@
+.admin-dashboard {
+  padding: 40px 0;
+}
+
+.welcome-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-color-light);
+  margin-bottom: 40px;
+}
+
+.admin-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.admin-nav-card {
+  display: block;
+  background-color: var(--white-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-nav-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-color: var(--primary-color);
+}
+
+.nav-card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.admin-nav-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-nav-card p {
+  color: var(--text-color-light);
+  line-height: 1.5;
+}
+
+.admin-nav-card.disabled {
+    background-color: var(--secondary-color);
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.admin-nav-card.disabled:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-color: var(--border-color);
+}

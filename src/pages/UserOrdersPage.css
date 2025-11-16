@@ -1,0 +1,157 @@
+.user-orders-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* This is the new style for the placeholder message */
+.no-orders-message {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--text-color-light);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* New button for "Shop Now" */
+.shop-now-btn {
+    /* Uses global button styles but provides an alternative look */
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.status-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-color-light);
+}
+.status-message.error {
+    color: var(--error-color);
+}
+
+/* Table styles */
+.orders-table-user {
+  width: 100%; 
+  border-collapse: collapse;
+}
+.orders-table-user thead {
+  background-color: var(--secondary-color);
+  border-bottom: 2px solid var(--border-color);
+}
+.orders-table-user th, .orders-table-user td {
+  padding: 1rem; text-align: left;
+}
+.orders-table-user tbody tr {
+  cursor: pointer; border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+.orders-table-user tbody tr:last-child { border-bottom: none; }
+.orders-table-user tbody tr:hover { background-color: var(--secondary-color); }
+
+/* Badge styles */
+.status-badge-user {
+    padding: 5px 12px; border-radius: 20px; font-size: 0.8rem;
+    font-weight: 600; color: white; text-transform: uppercase;
+}
+.status-pending { background-color: #f39c12; }
+.status-processing { background-color: #3498db; }
+.status-shipped { background-color: #1abc9c; }
+.status-delivered { background-color: var(--success-color); }
+.status-cancelled { background-color: var(--error-color); }
+
+/* --- THE RESPONSIVE FIX --- */
+@media screen and (max-width: 768px) {
+  .user-orders-page { padding: 0 15px; }
+
+  .orders-table-user thead { display: none; }
+
+  .orders-table-user tr {
+    display: block; 
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .orders-table-user td {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    padding: 0.5rem 0;
+    border-bottom: 1px dotted #e0e0e0;
+  }
+  .orders-table-user td:last-child { border-bottom: 0; }
+  
+  .orders-table-user td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-align: left;
+    margin-right: 1rem;
+  }
+}
+/* --- ADD THESE STYLES FOR ORDER HISTORY CARDS --- */
+.order-card-history {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  background-color: var(--white-color);
+}
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.order-card-header p {
+  color: var(--text-color-light);
+  font-size: 0.8rem;
+  margin: 0 0 0.25rem;
+}
+.order-card-header span {
+  font-weight: 500;
+}
+.order-card-body {
+  padding: 1.5rem;
+}
+.order-status {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.order-item-history {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.order-item-history img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+.order-item-history p {
+  font-weight: 500;
+}
+.order-card-actions {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 1rem;
+}
+.order-card-actions button {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  font-weight: 500;
+}
+.order-card-actions button:hover {
+  background-color: #e9ecef;
+  transform: none;
+}
